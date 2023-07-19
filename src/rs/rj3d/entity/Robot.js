@@ -68,6 +68,7 @@ define(function () {
 	 */
 	Robot.prototype.setColor = function (color) {
 		var model = this.model;
+		console.log('model', model)
 		var bodyColor = new THREE.Color(color);
 		var eyesColor = new THREE.Color(0x333333);
 		var handColor = new THREE.Color(0xfbb03b);
