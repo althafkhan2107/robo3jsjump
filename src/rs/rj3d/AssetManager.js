@@ -141,7 +141,7 @@ define(
 
       var am = this;
       var ml = new THREE.GLTFLoader(am.loadingManager);
-      var list = ['robot', 'Cloud1', 'Cloud2', 'Cloud4', 'MovingPlatform_Long','pumpkin'];
+      var list = ['Robot', 'Cloud1', 'Cloud2', 'Cloud4', 'MovingPlatform_Long','pumpkin'];
 
       function loadModel (name) {
 
