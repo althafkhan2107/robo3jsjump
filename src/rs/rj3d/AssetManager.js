@@ -141,11 +141,12 @@ define(
 
       var am = this;
       var ml = new THREE.GLTFLoader(am.loadingManager);
-      var list = ['robot', 'Cloud1', 'Cloud2', 'Cloud4', 'MovingPlatform_Long','pumpkin'];
+      var list = ['Robot', 'Cloud1', 'Cloud2', 'Cloud4', 'MovingPlatform_Long','pumpkin'];
 
       function loadModel (name) {
-
-        ml.load(MODEL_PATH + '/' + name + '.glb', function(gltf) {
+        const fileName = MODEL_PATH + '/' + name + '.glb';
+        console.log('fileName', fileName)
+        ml.load(fileName, function(gltf) {
 
           var model = gltf.scene;
           am[name] = model;

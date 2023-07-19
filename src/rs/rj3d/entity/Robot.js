@@ -3,7 +3,6 @@
  */
 define(function () {
 	"use strict";
-
 	const MODEL_SCALE = 325;
 	const GRAVITY = 50;
 	const JUMP_VALUE = 35;
