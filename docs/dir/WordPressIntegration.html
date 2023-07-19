@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>WordPress Integration &#8212; 3D Robot Jump  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/main.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Development" href="Development.html" />
+    <link rel="prev" title="Cordova" href="Cordova.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="wordpress-integration">
+<h1>WordPress Integration<a class="headerlink" href="#wordpress-integration" title="Permalink to this headline">¶</a></h1>
+<p>You can easily insert the game into WordPress post or page using iframe tag</p>
+<section id="upload-the-game-to-wordpress">
+<h2>Upload the game to WordPress<a class="headerlink" href="#upload-the-game-to-wordpress" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Inside download package, rename “production” folder to “robot-jump”</p></li>
+<li><p>Upload “robot-jump” to WordPress “uploads” folder. The path of “uploads” is “your_site_root/wp-content/uploads”</p></li>
+<li><p>Check that you can launch the game by going to “yourwebsite.com/wp-content/uploads/robot-jump/index.html”</p></li>
+</ul>
+</section>
+<section id="insert-the-game-into-wordpress">
+<h2>Insert the game into WordPress<a class="headerlink" href="#insert-the-game-into-wordpress" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Create a new WordPress post</p></li>
+<li><p>Switch to Code Editor by triggering the three dot icon in the top bar and choose Editor - Code editor</p></li>
+<li><p>Add some title for the post</p></li>
+<li><p>Add iframe tag to embed the game in the post body</p></li>
+</ul>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  &lt;iframe src=&quot;yourwebsite.com/wp-content/uploads/robot-jump/index.html&quot; width=&quot;1000&quot; height&quot;800&quot;&gt;&lt;/iframe&gt;
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Change the game width and height by modifying those values in iframe tag</p></li>
+<li><p>View the post with the game you just embed</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">3D Robot Jump</a></h1>
+
+
+
+<p class="blurb">Realistic 3D Casual Game</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Embedding.html">Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assets.html">Assets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cordova.html">Cordova</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WordPress Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#upload-the-game-to-wordpress">Upload the game to WordPress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insert-the-game-into-wordpress">Insert the game into WordPress</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BuildTasks.html">Build Tasks</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><br>
+<p><h3><a href="https://raizensoft.com">Raizensoft</a></h3></p>
+<p>Advanced Web Application Development</p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Raizensoft.com.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/dir/WordPressIntegration.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

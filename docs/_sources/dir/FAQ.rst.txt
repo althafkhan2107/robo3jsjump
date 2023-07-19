@@ -1,0 +1,40 @@
+
+===
+FAQ
+===
+
+1. How to add more levels
+
+   | Open config.json edit the *data* object, add a new object with its key as the category name and its value 
+   as an array of game items
+
+.. code-block:: json
+   :linenos:
+
+    ...
+    "data":{
+      "level":{
+        "mycategory":[
+          {
+            "id":1,
+            "board":"4x3",
+            "path":"data/item_1.jpg"
+          },
+          {
+            "id":2,
+            "board":"5x4",
+            "path":"data/item_2.jpg"
+          }
+        ]
+      }
+    }
+
+2. How to customize the difficulty level
+
+   | Each difficulty level is determined by values of *moveIteration* property in config.json. Changing *moveIteration* value will increase or decrease the difficulty. This example means EASY = 40, MEDIUM = 200 and HARD = 1000 iterations
+
+.. code-block:: json
+
+    "moveIteration":[40, 200, 1000]
+    
+

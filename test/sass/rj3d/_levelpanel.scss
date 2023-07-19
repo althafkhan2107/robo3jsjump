@@ -1,0 +1,66 @@
+
+$gridItemSize:64px;
+
+.rs-rj3d-levelpanel {
+
+  background:rgba(0, 0, 0, 0);
+  width:90%;
+  height:90%;
+  max-width:500px;
+  max-height:700px;
+  overflow:visible;
+
+  .rs-closebtn {
+    right:-16px;
+    top:-16px;
+  }
+
+  .rs-rj3d-levelgridcontainer {
+
+    max-height:700px;
+    height:100%;
+    overflow:hidden;
+  }
+
+  .rs-rj3d-levelgrid {
+
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+  }
+
+  .rs-rj3d-levelgriditem {
+
+    color:white;
+    margin:12px;
+    float:left;
+
+    span {
+
+      width: $gridItemSize;
+      height:$gridItemSize;
+      line-height:$gridItemSize;
+      display: block;
+      font-size:24px;
+      font-family:'Montserrat', sans-serif;
+      background:black;
+      border-radius:4px;
+      margin:0 auto;
+      text-align:center;
+      user-select:none;
+      border:2px solid #fff;
+      
+      &:hover {
+        background:white;
+        color:#111;
+        cursor:url('cursor.png'), auto;
+      }
+    }
+  }
+
+  .rs-rj3d-levelgrid:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

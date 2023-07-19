@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Development &#8212; 3D Robot Jump  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/main.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build Tasks" href="BuildTasks.html" />
+    <link rel="prev" title="WordPress Integration" href="WordPressIntegration.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<p>Using the provided build tools, you can quickly setup the development environment and start customizing the game very easily.</p>
+<section id="setup-environment">
+<h2>Setup environment<a class="headerlink" href="#setup-environment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://nodejs.org/en/download/">nodejs</a></p></li>
+<li><p>Run Window command line program (or Terminal app in Linux/Unix OS)</p></li>
+<li><p>Change current directory to the game folder</p></li>
+<li><p>Type “npm install”</p></li>
+<li><p>Once finished, type “grunt” to launch a local http server in the background and start developing</p></li>
+<li><p>Test the gallery by go to “<a class="reference external" href="http://localhost:8585/test/">http://localhost:8585/test/</a>”</p></li>
+</ul>
+</section>
+<section id="asynchronous-module">
+<h2>Asynchronous Module<a class="headerlink" href="#asynchronous-module" title="Permalink to this headline">¶</a></h2>
+<p>Modular programming has many advantages over one monolothic code base. All the app components are designed as individual classes wrapped in AMD module
+and then loaded asynchronously using require.js. This approach ensures the separation of concerns between software components and help implementing future features
+much easier.</p>
+</section>
+<section id="entry-point">
+<h2>Entry point<a class="headerlink" href="#entry-point" title="Permalink to this headline">¶</a></h2>
+<p>In the main html file, setup an entry Javascript file which configures requirejs and bootstraps the game:</p>
+<ul class="simple">
+<li><p>index.html</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;js/require.js&quot;</span> <span class="n">data</span><span class="o">-</span><span class="n">main</span><span class="o">=</span><span class="s2">&quot;js/entry.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>entry.js</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="c1">// Setup baseUrl for source folder and library paths</span>
+  <span class="nx">requirejs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+    <span class="nx">baseUrl</span><span class="o">:</span><span class="s2">&quot;../src/&quot;</span><span class="p">,</span>
+    <span class="nx">paths</span><span class="o">:</span><span class="p">{</span>
+      <span class="nx">libs</span><span class="o">:</span><span class="s2">&quot;../libs/&quot;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="nx">require</span><span class="p">([</span><span class="s1">&#39;rs/rj3d/RobotJump&#39;</span><span class="p">,</span> <span class="s1">&#39;libs/domReady&#39;</span><span class="p">],</span>
+
+    <span class="kd">function</span><span class="p">(</span><span class="nx">RobotJump</span><span class="p">,</span> <span class="nx">domReady</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="s2">&quot;use strict&quot;</span><span class="p">;</span>
+
+      <span class="nx">domReady</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.rs-rj3d&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">rj3d</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RobotJump</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">rj3d</span> <span class="o">=</span> <span class="nx">rj3d</span><span class="p">;</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+</pre></div>
+</td></tr></table></div>
+<p>See <a class="reference external" href="https://requirejs.org/docs/start.html">require.js</a> for more detail about developing with AMD module</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">3D Robot Jump</a></h1>
+
+
+
+<p class="blurb">Realistic 3D Casual Game</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Embedding.html">Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assets.html">Assets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cordova.html">Cordova</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WordPressIntegration.html">WordPress Integration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-environment">Setup environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asynchronous-module">Asynchronous Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entry-point">Entry point</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BuildTasks.html">Build Tasks</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><br>
+<p><h3><a href="https://raizensoft.com">Raizensoft</a></h3></p>
+<p>Advanced Web Application Development</p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Raizensoft.com.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/dir/Development.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

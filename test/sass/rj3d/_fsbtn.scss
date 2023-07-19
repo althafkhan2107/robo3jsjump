@@ -1,0 +1,27 @@
+
+$fsbtnColor:#eee !default;
+$fsbtnBgColor:black !default;
+$fsbtnSize:12px !default;
+
+.icon-screen-full:before {
+  content: "\e98b";
+}
+
+.icon-screen-normal:before {
+  content: "\e98c";
+}
+
+.rs-rj3d-fsbtn {
+
+  color:$fsbtnColor;
+  position: absolute;
+  background:$fsbtnBgColor;
+  font-size:12px;
+  width: 20px;
+  height: 20px;
+  border-radius:50%;
+  top:10px;
+  right:4px;
+  z-index:3000;
+  cursor:pointer;
+}

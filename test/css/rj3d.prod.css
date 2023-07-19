@@ -1,0 +1,933 @@
+
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family:sans-serif;
+  width: 100%;
+  margin:0;
+  padding:0;
+  background:#111;
+}
+
+#wrapper {
+  width: 100%;
+  height:100%;
+}
+
+.rs-container {
+  width: 100%;
+  height:100%;
+}
+
+.rs-ringpreloader {
+  position: absolute;
+  z-index: 4000;
+  top: 50%;
+  left: 50%; }
+  .rs-ringpreloader .lds-ring {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+    .rs-ringpreloader .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border: 8px solid #fff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #AAA transparent transparent transparent; }
+    .rs-ringpreloader .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s; }
+    .rs-ringpreloader .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s; }
+    .rs-ringpreloader .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s; }
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+.rs-game-overlay {
+  background: rgba(35, 35, 35, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.rs-game-panel {
+  background-color: #fbb03b;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  box-shadow: 0px 8px 10px 0px #222;
+  transform: translate(-50%, -50%); }
+  .rs-game-panel .rs-closebtn {
+    display: block;
+    position: absolute;
+    font-size: 38px;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    user-select: none;
+    text-align: center;
+    background: #111;
+    right: 0;
+    color: white;
+    z-index: 9999; }
+
+.rs-image-panel {
+  background-color: transparent; }
+  .rs-image-panel img {
+    border-radius: 12px; }
+
+.rs-game-optionpanel {
+  border-radius: 8px; }
+  .rs-game-optionpanel .rs-optionitem {
+    text-align: center;
+    padding: 8px;
+    font-size: 22px;
+    transition: 0.25s all ease-out;
+    text-transform: uppercase; }
+    .rs-game-optionpanel .rs-optionitem:hover {
+      background: #eee; }
+
+.rs-tap-animation {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  margin-left: -40px;
+  animation: 0.25s linear 0s infinite alternate tapping; }
+
+@keyframes tapping {
+  0% {
+    transform: scale(1, 1); }
+  100% {
+    transform: scale(1.25, 1.25); } }
+.rs-timer-button {
+  display: block;
+  position: fixed;
+  right: 6px;
+  top: 6px;
+  width: 120px;
+  height: 120px; }
+  .rs-timer-button .rs-timer-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-family: 'Odibee Sans';
+    color: #a8ff37;
+    font-size: 56px;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    text-align: center;
+    top: 2px;
+    left: 10px; }
+
+.rs-trophy-panel {
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  max-width: 400px;
+  max-height: 500px;
+  border-radius: 10px;
+  border: 2px solid #eee; }
+  .rs-trophy-panel .meta-container {
+    width: 100%;
+    top: 30px;
+    position: absolute;
+    text-align: center; }
+    .rs-trophy-panel .meta-container span {
+      font-family: 'Odibee Sans';
+      display: block;
+      color: white;
+      font-size: 32px;
+      margin: 8px;
+      letter-spacing: 2px;
+      user-select: none;
+      text-shadow: 0px 4px 0px #333; }
+  .rs-trophy-panel img {
+    display: block;
+    text-align: center;
+    max-width: 200px;
+    margin: 8px auto;
+    user-select: none; }
+  .rs-trophy-panel .level-label {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #111;
+    font-size: 32px;
+    bottom: 26px;
+    user-select: none; }
+  .rs-trophy-panel .trophy-container {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.trophy-level-title {
+  color: #fbb03b;
+  user-select: none;
+  font-family: 'Odibee Sans', serif;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  letter-spacing: 6px;
+  margin: 4px;
+  border-radius: 20px;
+  padding: 6px;
+  width: 100px;
+  background-color: rgba(10, 10, 10, 0.85);
+  text-align: center; }
+
+.trophy-button-container {
+  width: 200px;
+  display: flex;
+  z-index: 9999;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 36px;
+  align-content: center;
+  justify-content: space-evenly; }
+  .trophy-button-container .rs-rj3d-mainbutton {
+    transform: scale(1.5); }
+
+.rs-rj3d-levelpanel {
+  background: transparent;
+  width: 90%;
+  height: 90%;
+  max-width: 500px;
+  max-height: 700px;
+  overflow: visible; }
+  .rs-rj3d-levelpanel .rs-closebtn {
+    right: -16px;
+    top: -16px; }
+  .rs-rj3d-levelpanel .rs-rj3d-levelgridcontainer {
+    max-height: 700px;
+    height: 100%;
+    overflow: hidden; }
+  .rs-rj3d-levelpanel .rs-rj3d-levelgrid {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto; }
+  .rs-rj3d-levelpanel .rs-rj3d-levelgriditem {
+    color: white;
+    margin: 12px;
+    float: left; }
+    .rs-rj3d-levelpanel .rs-rj3d-levelgriditem span {
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      display: block;
+      font-size: 24px;
+      font-family: 'Montserrat', sans-serif;
+      background: black;
+      border-radius: 4px;
+      margin: 0 auto;
+      text-align: center;
+      user-select: none;
+      border: 2px solid #fff; }
+      .rs-rj3d-levelpanel .rs-rj3d-levelgriditem span:hover {
+        background: white;
+        color: #111;
+        cursor: url("cursor.png"), auto; }
+  .rs-rj3d-levelpanel .rs-rj3d-levelgrid:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.rs-rj3d-helppanel {
+  max-width: 500px;
+  max-height: 140px;
+  border-radius: 8px; }
+  .rs-rj3d-helppanel .rs-helpcontainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+  .rs-rj3d-helppanel h3 {
+    font-family: Verdana; }
+  .rs-rj3d-helppanel .helppanel-content {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    font-family: 'Montserrat'; }
+  .rs-rj3d-helppanel .help-section {
+    padding: 8px;
+    text-align: center; }
+    .rs-rj3d-helppanel .help-section img {
+      display: block;
+      margin: 0 auto; }
+    .rs-rj3d-helppanel .help-section h3 {
+      font-size: 24px;
+      margin: 8px; }
+
+.rs-ab3d-restartpanel {
+  width: 300px;
+  font-size: 40px;
+  font-family: 'Odibee Sans', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 16px;
+  color: #eee;
+  background: rgba(10, 10, 10, 0.9);
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  user-select: none; }
+
+.rs-rj3d-cpanel {
+  text-align: center;
+  max-width: 500px;
+  max-height: 500px;
+  font-family: 'Verdana';
+  text-align: center;
+  border-radius: 8px; }
+  .rs-rj3d-cpanel p {
+    font-family: 'Montserrat';
+    font-size: 24px; }
+
+.rs-rj3d-categorypanel {
+  background: #1d1d1d;
+  max-width: 500px;
+  max-height: 600px;
+  border-radius: 18px;
+  padding: 12px;
+  overflow: visible;
+  font-family: 'Montserrat'; }
+  .rs-rj3d-categorypanel .rs-categoryitem {
+    user-select: none;
+    color: #eee;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+    margin: 6px;
+    margin: 20px auto;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid white;
+    cursor: pointer; }
+    .rs-rj3d-categorypanel .rs-categoryitem:hover {
+      background: white;
+      color: black; }
+  .rs-rj3d-categorypanel .selected-item {
+    background: #ffcc00 !important;
+    color: black !important; }
+  .rs-rj3d-categorypanel .rs-closebtn {
+    right: -32px; }
+
+.rs-rj3d-spanel {
+  max-width: 500px;
+  max-height: 600px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif; }
+  .rs-rj3d-spanel .rs-settingcontainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center; }
+  .rs-rj3d-spanel .rs-settingitem {
+    margin: 12px 2px; }
+    .rs-rj3d-spanel .rs-settingitem span {
+      display: block;
+      font-size: 22px;
+      width: 200px;
+      margin: 0 auto;
+      border-radius: 40px;
+      padding: 8px 2px;
+      background: #111;
+      color: white; }
+      .rs-rj3d-spanel .rs-settingitem span:hover {
+        background: #eee;
+        color: #111; }
+
+.rs-game-optionpanel .rs-optionitem {
+  font-family: "Montserrat" !important; }
+
+/* montserrat-regular - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("fonts/montserrat-v15-latin-regular.woff2") format("woff2"), url("fonts/montserrat-v15-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* montserrat-italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  src: local(""), url("fonts/montserrat-v15-latin-italic.woff2") format("woff2"), url("fonts/montserrat-v15-latin-italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* montserrat-300italic - latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 300;
+  src: local(""), url("fonts/montserrat-v15-latin-300italic.woff2") format("woff2"), url("fonts/montserrat-v15-latin-300italic.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+/* odibee-sans-regular - latin */
+@font-face {
+  font-family: 'Odibee Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("fonts/odibee-sans-v4-latin-regular.woff2") format("woff2"), url("fonts/odibee-sans-v4-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?7ehtvk");
+  src: url("fonts/icomoon.eot?7ehtvk#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?7ehtvk") format("truetype"), url("fonts/icomoon.woff?7ehtvk") format("woff"), url("fonts/icomoon.svg?7ehtvk#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; }
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-timer:before {
+  content: "\a905"; }
+
+.icon-hint:before {
+  content: "\a906"; }
+
+.icon-mode:before {
+  content: "\a907"; }
+
+.icon-setting:before {
+  content: "\a908"; }
+
+.icon-home:before {
+  content: "\a909"; }
+
+.icon-info:before {
+  content: "\a90a"; }
+
+.icon-lock:before {
+  content: "\e900"; }
+
+.icon-quill:before {
+  content: "\e907"; }
+
+.icon-stack:before {
+  content: "\e92e"; }
+
+.icon-undo:before {
+  content: "\e984"; }
+
+.icon-screen-full:before {
+  content: "\e98b"; }
+
+.icon-screen-normal:before {
+  content: "\e98c"; }
+
+.icon-eye:before {
+  content: "\e9ce"; }
+
+.icon-playtime:before {
+  content: "\ea1c"; }
+
+.icon-pausetime:before {
+  content: "\ea1d"; }
+
+.icon-sound-on:before {
+  content: "\ea27"; }
+
+.icon-sound-off:before {
+  content: "\ea2a"; }
+
+.icon-shuffle:before {
+  content: "\ea30"; }
+
+.icon-nextlevel:before {
+  content: "\ea34"; }
+
+.icon-heart:before {
+  content: "\e9da"; }
+
+html {
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior-y: contain;
+  -webkit-text-size-adjust: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+  cursor: url("cursor.png"), auto;
+  transform-style: preserve-3d;
+  perspective: 1000px; }
+
+.rs-container {
+  background: #00333f; }
+
+.rs-rj3d {
+  display: none;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box !important;
+  user-select: none;
+  perspective: 1000px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; }
+
+.rs-rj3d-timeout {
+  font-weight: bold; }
+
+.coin-counter {
+  position: fixed;
+  font-size: 32px;
+  color: white;
+  z-index: 9999;
+  background: rgba(20, 20, 20, 0.75);
+  padding: 8px;
+  border-radius: 12px; }
+
+.rs-hero-icon {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 128px;
+  transition: all 0.25s; }
+
+.rs-hero-icon-down {
+  transform: scale(0.85); }
+
+.rs-hero-ui {
+  position: fixed; }
+
+.rs-hero-ui-pair {
+  position: fixed; }
+
+.rs-operation {
+  position: fixed;
+  width: 600px;
+  top: 100px;
+  left: 50%; }
+  .rs-operation .rs-operands {
+    width: 54%;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto; }
+  .rs-operation .rs-result-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 20px;
+    transform: scale(0.85); }
+
+.rs-operation-item {
+  display: block;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  user-select: none;
+  border-radius: 6px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  font-family: 'Montserrat', 'sans-serif';
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent; }
+
+.rs-result-item {
+  display: block;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  user-select: none;
+  border-radius: 6px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  font-family: 'Montserrat', 'sans-serif';
+  border-radius: 50%;
+  transition: all 0.2s ease-out; }
+
+@media screen and (max-width: 574px) {
+  .rs-rj3d-movebtn .movebtn-value {
+    display: none !important; }
+
+  .rs-hscreen {
+    transform: scale(0.6); }
+
+  .rs-hscreen-header .app-info {
+    display: none !important; }
+  .rs-hscreen-header .app-progress {
+    width: 200px; }
+
+  .rs-trophy-panel span {
+    font-size: 20px; }
+
+  .trophy-level-title {
+    font-size: 16px; }
+
+  .rs-class-selector {
+    transform: translateX(-50%) scale(0.45); }
+
+  .rs-timer-button {
+    transform: scale(0.5);
+    transform-origin: top right; }
+
+  .rs-rj3d-gamebuttonbar {
+    transform: scale(0.65);
+    transform-origin: bottom right; }
+
+  .rs-rj3d-levelbtn {
+    transform: scale(0.7); } }
+@media screen and (min-width: 575px) {
+  .rs-rj3d {
+    /*min-height:580px !important;*/ }
+
+  .rs-hscreen {
+    transform: scale(0.7); }
+
+  .rs-hscreen-header .app-title {
+    font-size: 32px;
+    margin-bottom: 6px; }
+  .rs-hscreen-header .appt-info {
+    font-size: 12px; }
+  .rs-hscreen-header .app-progress {
+    width: 200px; }
+
+  .trophy-level-title {
+    font-size: 20px; }
+
+  .rs-class-selector {
+    transform: translateX(-50%) scale(0.6); }
+
+  .rs-timer-button {
+    transform: scale(0.65);
+    transform-origin: top right; }
+
+  .rs-rj3d-gamebuttonbar {
+    transform: scale(1);
+    transform-origin: bottom right; }
+
+  .rs-rj3d-levelbtn {
+    transform: scale(0.85); } }
+@media screen and (min-width: 576px) {
+  .rs-hscreen {
+    transform: scale(0.85); }
+
+  .rs-hscreen-header .app-title {
+    font-size: 40px;
+    margin-bottom: 8px; }
+  .rs-hscreen-header .appt-info {
+    font-size: 16px; }
+  .rs-hscreen-header .app-progress {
+    width: 250px; }
+
+  .trophy-level-title {
+    font-size: 20px; }
+
+  .rs-class-selector {
+    transform: translateX(-50%) scale(0.65); }
+
+  .rs-timer-button {
+    transform: scale(0.85);
+    transform-origin: top right; }
+
+  .rs-rj3d-levelbtn {
+    transform: scale(1); } }
+@media screen and (min-width: 768px) {
+  .rs-rj3d {
+    /*min-height:620px !important;*/ }
+
+  .rs-hscreen {
+    transform: scale(1); }
+
+  .rs-hscreen-header .app-title {
+    font-size: 60px;
+    margin-bottom: 14px; }
+  .rs-hscreen-header .appt-info {
+    font-size: 20px; }
+  .rs-hscreen-header .app-progress {
+    width: 300px; }
+
+  .trophy-level-title {
+    font-size: 26px; }
+
+  .rs-class-selector {
+    transform: translateX(-50%) scale(0.7); }
+
+  .rs-timer-button {
+    transform: scale(0.85);
+    transform-origin: top right; } }
+@media screen and (min-width: 992px) {
+  .rs-rj3d {
+    /*min-height:800px !important;*/ }
+
+  .rs-class-selector {
+    transform: translateX(-50%) scale(0.75); }
+
+  .rs-timer-button {
+    transform: scale(0.85);
+    transform-origin: top right; } }
+.rs-hscreen-header {
+  position: relative; }
+  .rs-hscreen-header .app-logo {
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 32px;
+    display: block;
+    animation: 1s infinite alternate logo-animation;
+    user-select: none; }
+  .rs-hscreen-header .app-title {
+    font-family: 'Odibee Sans', serif;
+    text-align: center;
+    color: #fbb03b;
+    letter-spacing: 6px;
+    position: relative;
+    user-select: none; }
+  .rs-hscreen-header .app-info {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    text-align: center;
+    user-select: none; }
+  .rs-hscreen-header .app-progress {
+    height: 10px;
+    margin: 0 auto;
+    margin-top: 24px;
+    display: block;
+    background: #555;
+    border-radius: 10px; }
+  .rs-hscreen-header .app-progress-inner {
+    background: #fbb03b;
+    height: 100%;
+    border-radius: 10px;
+    transition: all 0.35s ease-out; }
+
+@keyframes logo-animation {
+  from {
+    transform: scale(1, 1); }
+  to {
+    transform: scale(1.2, 1.2); } }
+.rs-hscreenmenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .rs-hscreenmenu .menu-list {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center; }
+  .rs-hscreenmenu .menu-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    padding: 12px;
+    margin: 22px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: all 0.2s ease-out; }
+  .rs-hscreenmenu .menu-item:hover {
+    color: #111;
+    background: #fbb03b; }
+
+.rs-rj3d-gamebuttonbar {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 8px;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 20px; }
+
+.rs-rj3d-mainbutton {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+  background: #fbb03b;
+  color: #1a1a1a;
+  transition: all 0.1s ease-out; }
+  .rs-rj3d-mainbutton:active:hover {
+    transform: scale(0.7); }
+
+.rs-rj3d-flatview {
+  background: #111 !important;
+  color: #eee; }
+
+.rs-rj3d-mainbutton-extra {
+  background: #6d8afc !important; }
+  .rs-rj3d-mainbutton-extra:hover {
+    background: #111 !important;
+    color: #eee; }
+
+.rs-rj3d-gamewonbar {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .rs-rj3d-gamewonbar img {
+    display: block;
+    margin: 0 24px;
+    transition: 0.25s all ease-out; }
+  .rs-rj3d-gamewonbar img:hover {
+    transform: scale(1.15); }
+
+.rs-rj3d-gameheader {
+  font-family: sans-serif;
+  max-width: 320px;
+  width: 100%;
+  height: 50px;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border-radius: 6px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .rs-rj3d-gameheader .rs-rj3d-dbar {
+    position: relative;
+    width: 300px;
+    height: 26px;
+    border: 3px solid #eee;
+    border-radius: 20px;
+    overflow: hidden; }
+    .rs-rj3d-gameheader .rs-rj3d-dbar .progress-bar {
+      position: absolute;
+      background: #018172;
+      background: linear-gradient(0deg, #018172 0%, #07d4a7 100%);
+      height: 100%;
+      width: 100%; }
+    .rs-rj3d-gameheader .rs-rj3d-dbar .duration-label {
+      position: absolute;
+      color: #fff;
+      user-select: none;
+      font-size: 16px;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      line-height: 26px;
+      letter-spacing: 1px; }
+  .rs-rj3d-gameheader .rs-rj3d-levelbtn {
+    width: 80px;
+    background-image: url("LevelBackground.svg");
+    background-size: contain;
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    font-family: 'Odibee Sans';
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    letter-spacing: 1px; }
+    .rs-rj3d-gameheader .rs-rj3d-levelbtn span {
+      user-select: none;
+      display: inline-block;
+      padding: 6px 2px; }
+    .rs-rj3d-gameheader .rs-rj3d-levelbtn .levelbtn-label {
+      font-size: 16px;
+      padding: 6px; }
+
+/*# sourceMappingURL=rj3d.css.map */
+
+
+footer {
+  margin-top:20px;
+  text-align:center;
+  color:#555;
+  font-size:14px;
+}
+
+footer a, a:visited {
+  color:white;
+}
+
+.extras-content {
+  display: none;
+}
+
+.helppanel-content {
+
+  width: 100%;
+  height: 100%;
+  user-select:none;
+  font-family: 'Montserrat';
+}
+
+.help-section {
+  padding:8px;
+}
+
+.help-section img {
+  display: block;
+  margin:0 auto;
+}
+
+.help-section h3 {
+  font-size:24px;
+  margin:8px;
+}
+
+.helppanel-content .help-section {
+
+  text-align: center
+}

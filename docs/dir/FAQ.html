@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>FAQ &#8212; 3D Robot Jump  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/main.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic">
+<li><p>How to add more levels</p>
+<div class="line-block">
+<div class="line">Open config.json edit the <em>data</em> object, add a new object with its key as the category name and its value</div>
+</div>
+<p>as an array of game items</p>
+</li>
+</ol>
+<div class="highlight-json notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span> ...
+ &quot;data&quot;:{
+   &quot;level&quot;:{
+     &quot;mycategory&quot;:[
+       {
+         &quot;id&quot;:1,
+         &quot;board&quot;:&quot;4x3&quot;,
+         &quot;path&quot;:&quot;data/item_1.jpg&quot;
+       },
+       {
+         &quot;id&quot;:2,
+         &quot;board&quot;:&quot;5x4&quot;,
+         &quot;path&quot;:&quot;data/item_2.jpg&quot;
+       }
+     ]
+   }
+ }
+</pre></div>
+</td></tr></table></div>
+<ol class="arabic" start="2">
+<li><p>How to customize the difficulty level</p>
+<div class="line-block">
+<div class="line">Each difficulty level is determined by values of <em>moveIteration</em> property in config.json. Changing <em>moveIteration</em> value will increase or decrease the difficulty. This example means EASY = 40, MEDIUM = 200 and HARD = 1000 iterations</div>
+</div>
+</li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;moveIteration&quot;:[40, 200, 1000]
+</pre></div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">3D Robot Jump</a></h1>
+
+
+
+<p class="blurb">Realistic 3D Casual Game</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Embedding.html">Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Customization.html">Customization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Assets.html">Assets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cordova.html">Cordova</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WordPressIntegration.html">WordPress Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BuildTasks.html">Build Tasks</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><br>
+<p><h3><a href="https://raizensoft.com">Raizensoft</a></h3></p>
+<p>Advanced Web Application Development</p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Raizensoft.com.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/dir/FAQ.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

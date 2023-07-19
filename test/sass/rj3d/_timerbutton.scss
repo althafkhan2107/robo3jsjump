@@ -1,0 +1,30 @@
+
+$timerButtonSize:120px;
+$timerButtonPadding:6px;
+
+.rs-timer-button {
+
+  display:block;
+  position:fixed;
+  right:$timerButtonPadding;
+  top:$timerButtonPadding;
+  width:$timerButtonSize;
+  height:$timerButtonSize;
+
+  .rs-timer-num {
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    font-family:'Odibee Sans';
+    color:#a8ff37;
+    font-size:56px;
+    width:100%;
+    height:100%;
+    user-select:none;
+    text-align:center;
+    top:2px;
+    left:10px;
+  }
+}

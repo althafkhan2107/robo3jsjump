@@ -1,0 +1,24 @@
+{
+	"general": {
+		"useHelpPanel": false,
+		"useCreditPanel": false,
+		"useBackgroundMusic": true
+	},
+	"strings": {
+		"APP_TITLE": "MeeBits Jumper",
+		"APP_INFO": "Hyper Casual Game",
+		"NEW_GAME": "NEW GAME",
+		"HELP": "HELP",
+		"HELP_TEXT": "Help text",
+		"SETTING": "SETTING",
+		"CREDITS": "CREDITS",
+		"CREDIT_TEXT": "Music and sound effects from opengameart.org"
+	},
+	"data": {
+		"platformDistance": 1000,
+		"switchInterval": 6,
+		"jumpSpeed": 1.95,
+		"gravityScale": 1.35,
+		"level": []
+	}
+}

@@ -1,0 +1,39 @@
+.rs-rj3d-spanel {
+
+  max-width:500px;
+  max-height:600px;
+  border-radius:8px;
+  font-family:'Montserrat', sans-serif;
+
+  .rs-settingcontainer {
+
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    text-align: center;
+  }
+
+  .rs-settingitem {
+
+    margin:12px 2px;
+    
+    span {
+      display: block;
+      font-size:22px;
+      width:200px;
+      margin:0 auto;
+      border-radius:40px;
+      padding:8px 2px;
+      background:#111;
+      color:white;
+      &:hover {
+        background:#eee;
+        color:#111;
+      }
+    }
+  }
+}
+
+.rs-game-optionpanel .rs-optionitem {
+  font-family: 'Montserrat'!important;
+}

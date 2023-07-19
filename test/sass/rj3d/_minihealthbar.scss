@@ -1,0 +1,16 @@
+
+$mbarColor:#f93e3e;
+
+.rs-mini-healthbar {
+
+  position:fixed;
+  border:2px solid white;
+  background-color:#333;
+  top:0;
+  left:0;
+
+  .inner-bar {
+    width:100%;
+    background-color:$mbarColor;
+  }
+}

@@ -1,0 +1,21 @@
+
+$heartSize:32px;
+$heartFontSize:22px;
+
+.rs-heartbar {
+
+  flex-direction: row;
+  background: #333;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  padding:0px 6px;
+
+  .rs-heart-item {
+    display: inline-block;
+    font-size:$heartFontSize;
+    line-height:$heartSize;
+    user-select:none;
+    margin:2px;
+  }
+}

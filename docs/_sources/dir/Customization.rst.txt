@@ -1,0 +1,48 @@
+
+Customization
+=============
+
+You can customize the game by editing *config.json* (production/ test folder) or insert javascript code into intializing code in *index.html*
+
+config.json
+-----------
+
+* General parameters
+
+.. list-table:: 
+   :widths: 30 25 25 50
+   :header-rows: 1
+
+   * - Name
+     - Type
+     - Default
+     - Description
+   * - useHelpPanel
+     - boolean
+     - true
+     - Enable or disable help panel
+   * - useCreditPanel
+     - boolean
+     - true
+     - Enable or disable credit panel
+   * - useBackgroundMusic
+     - boolean
+     - true
+     - Enable or disable background music
+
+
+* String resources for changing text interfaces: 
+    APP_TITLE, APP_INFO, NEW_GAME, HELP, HELP_TEXT, SETTING, CREDIT, CREDIT_TEXT
+
+
+Javascript
+----------
+
+You can also pass an argument object to the game instance to config its behaviour. Inside "index.html" (production folder) :
+
+.. code-block:: javascript
+ :linenos:
+
+  var el = document.querySelector('.rs-rj3d');
+  var rj3d = new RobotJump(el);
+

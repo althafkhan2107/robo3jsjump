@@ -1,0 +1,63 @@
+
+.rs-hero-screen {
+
+  display:block;
+}
+
+.rs-class-selector {
+
+  display: flex;
+  flex-wrap:wrap;
+  width: 700px;
+  transform: translateX(-50%) scale(0.75);
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  border-radius: 20px;
+  padding: 6px 20px;
+  justify-content: space-around;
+  background-color:#555;
+
+  .rs-hero-icon {
+    position:static;
+  }
+} 
+
+.rs-class-container {
+
+  position:fixed;
+  display:block;
+  bottom:14%;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.rs-class-title {
+
+  display:block;
+  font-family:'Odibee Sans';
+  font-size:32px;
+  color:white;
+  text-align:center;
+  letter-spacing:2px;
+}
+
+.rs-class-button {
+
+  width:130px;
+  text-align:center;
+  font-family:'Montserrat', sans-serif;
+  font-weight:400;
+  font-size:20px;    
+  color:white;
+  padding:12px;
+  margin:22px;
+  border:2px solid #fff;
+  border-radius:8px;
+  transition:all 0.2s ease-out;
+
+  &:hover {
+    color:#111;
+    background:$accentColor;
+  }
+}

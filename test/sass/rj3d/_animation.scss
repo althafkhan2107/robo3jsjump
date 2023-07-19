@@ -1,0 +1,14 @@
+
+.rs-tap-animation {
+
+  position:fixed;
+  bottom:80px;
+  left:50%;
+  margin-left:-40px;
+  animation: 0.25s linear 0s infinite alternate tapping;
+}
+
+@keyframes tapping {
+  0% {transform:scale(1, 1);}
+  100% {transform:scale(1.25, 1.25);}
+}

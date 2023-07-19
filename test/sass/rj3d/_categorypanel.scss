@@ -1,0 +1,41 @@
+
+.rs-rj3d-categorypanel {
+
+  background:#1d1d1d;
+  max-width:500px;
+  max-height:600px;
+  border-radius:18px;
+  padding:12px;
+  overflow:visible;
+  font-family:'Montserrat';
+
+  .rs-categoryitem {
+    user-select:none;
+    color:#eee;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 200px;
+    margin: 6px;
+    margin: 20px auto;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid white;
+    cursor: pointer;
+
+    &:hover {
+      background:white;
+      color:black;
+    }
+  }
+
+  .selected-item {
+    background:#ffcc00!important;
+    color:black!important;
+  }
+
+  .rs-closebtn {
+    right:-32px;
+  }
+
+}

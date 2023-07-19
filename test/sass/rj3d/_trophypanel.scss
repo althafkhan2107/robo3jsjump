@@ -1,0 +1,93 @@
+
+.rs-trophy-panel {
+
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  max-width:400px;
+  max-height:500px;
+  border-radius:10px;
+  border:2px solid #eee;
+
+  .meta-container {
+
+    width: 100%;
+    top:30px;
+    position: absolute;
+    text-align: center;
+
+    span {
+      font-family:'Odibee Sans';
+      display: block;
+      color:white;
+      font-size:32px;
+      margin:8px;
+      letter-spacing:2px;
+      user-select:none;
+      text-shadow: 0px 4px 0px #333;
+    }
+  }
+
+  img {
+    display: block;
+    text-align: center;
+    max-width:200px;
+    margin:8px auto;
+    user-select:none;
+  }
+
+  .level-label {
+    display: block;
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    color:#111;
+    font-size:32px;
+    bottom:26px;
+    user-select:none;
+  }
+
+  .trophy-container {
+    width:100%;
+    position: relative;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+}
+
+.trophy-level-title {
+
+  color:$accentColor;
+  user-select:none;
+  font-family:'Odibee Sans', serif;
+  z-index:9999;
+  position: fixed;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  letter-spacing:6px;
+  margin:4px;
+  border-radius:20px;
+  padding:6px;
+  width: 100px;
+  background-color:rgba(10, 10, 10, 0.85);
+  text-align: center;
+}
+
+.trophy-button-container {
+
+  width:200px;
+  display:flex;
+  z-index:9999;
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:36px;
+  align-content:center;
+  justify-content:space-evenly;
+
+  .rs-rj3d-mainbutton {
+    transform:scale(1.5);
+  }
+}
+
